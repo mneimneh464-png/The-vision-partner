@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision Partner — Strategic Communications & Marketing Operations</title>
+<meta name="description" content="Vision Partner is a premium fractional marketing operations and strategic communications firm serving ambitious organizations across UAE, Lebanon, and the GCC region.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070B;--bg2:#0D0E15;--bg3:#11131C;--bgc:#0F1019;
+  --gold:#B8924A;--goldl:#CFA96A;--goldp:rgba(184,146,74,.10);--goldb:rgba(184,146,74,.22);
+  --text:#EDE9E0;--ts:#848897;--tt:#4A4D5C;
+  --border:rgba(255,255,255,.055);--borderh:rgba(255,255,255,.09);
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Inter',system-ui,sans-serif;
+  --fs:'Space Grotesk',system-ui,sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --eout:cubic-bezier(.16,1,.3,1);
+  --r:var(--ease);
+  --nav:72px;
+  --max:1240px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* LOADING */
+#ls{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;transition:opacity .7s,visibility .7s}
+#ls.out{opacity:0;visibility:hidden;pointer-events:none}
+.ll{font-family:var(--fd);font-size:2rem;font-weight:300;color:var(--gold);letter-spacing:.2em;opacity:0;animation:fup .8s var(--eout) .3s forwards}
+.lb{width:140px;height:1px;background:var(--border);position:relative;overflow:hidden}
+.lb::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--gold);animation:lb 1.4s var(--ease) .6s forwards}
+@keyframes lb{to{left:0}}
+@keyframes fup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fin{from{opacity:0}to{opacity:1}}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:1000;display:flex;align-items:center;transition:background .4s,box-shadow .4s}
+#nav.sc{background:rgba(7,7,11,.93);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border)}
+.ni{max-width:var(--max);margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nlogo{cursor:pointer;display:flex;flex-direction:column;gap:.1rem}
+.nln{font-family:var(--fd);font-size:1.45rem;font-weight:500;letter-spacing:.04em;line-height:1;color:var(--text)}
+.nlt{font-family:var(--fs);font-size:.58rem;color:var(--gold);letter-spacing:.22em;text-transform:uppercase}
+.nlinks{display:flex;align-items:center;gap:2.5rem}
+.nl{font-family:var(--fs);font-size:.78rem;font-weight:400;color:var(--ts);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;position:relative;transition:color .2s}
+.nl::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--eout)}
+.nl:hover,.nl.on{color:var(--text)}
+.nl:hover::after,.nl.on::after{width:100%}
+.ncta{font-family:var(--fs);font-size:.76rem;font-weight:500;color:var(--bg);background:var(--gold);padding:.6rem 1.5rem;border-radius:3px;letter-spacing:.07em;text-transform:uppercase;transition:background .2s,transform .2s;cursor:pointer}
+.ncta:hover{background:var(--goldl);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;width:28px;cursor:pointer;padding:4px 0}
+.ham span{display:block;height:1.5px;background:var(--text);transition:all .35s var(--ease)}
+.ham.on span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham.on span:nth-child(2){opacity:0}
+.ham.on span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+#mnav{position:fixed;top:var(--nav);left:0;right:0;background:rgba(7,7,11,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:2rem;display:flex;flex-direction:column;gap:1.25rem;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s var(--ease);z-index:999}
+#mnav.on{opacity:1;visibility:visible;transform:none}
+#mnav .nl{font-size:.95rem;padding:.5rem 0;border-bottom:1px solid var(--border)}
+#sp{position:fixed;top:var(--nav);left:0;height:2px;background:var(--gold);width:0%;z-index:998;transition:width .08s linear}
+
+/* PAGES */
+.pg{display:none}.pg.on{display:block}
+.pgx{opacity:0;transition:opacity .35s}.pgx.show{opacity:1}
+
+/* CONTAINER / SECTIONS */
+.w{max-width:var(--max);margin:0 auto;padding:0 2rem}
+.sec{padding:7rem 0}.sec2{padding:5rem 0}.sec3{padding:3.5rem 0}
+
+/* TYPOGRAPHY */
+.lbl{font-family:var(--fs);font-size:.68rem;font-weight:500;color:var(--gold);letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:center;gap:.75rem}
+.lbl::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0}
+.lbl.c{justify-content:center}.lbl.c::before{display:none}
+.dxl{font-family:var(--fd);font-size:clamp(3.2rem,7.5vw,6.8rem);font-weight:300;line-height:1.04;letter-spacing:-.025em}
+.dlg{font-family:var(--fd);font-size:clamp(2.2rem,5vw,4.4rem);font-weight:300;line-height:1.07;letter-spacing:-.015em}
+.dmd{font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,3.1rem);font-weight:300;line-height:1.12;letter-spacing:-.01em}
+.hlg{font-family:var(--fb);font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:500;line-height:1.25}
+.hmd{font-family:var(--fb);font-size:clamp(1rem,2vw,1.35rem);font-weight:500;line-height:1.3}
+.blg{font-size:1.05rem;line-height:1.72;color:var(--ts);font-weight:300}
+.bmd{font-size:.92rem;line-height:1.65;color:var(--ts)}
+.gc{color:var(--gold)}
+.em{font-style:italic;color:var(--goldl)}
+.mt1{margin-top:.75rem}.mt2{margin-top:1.5rem}.mt3{margin-top:2.5rem}.mt4{margin-top:4rem}.mt5{margin-top:5rem}
+.mb2{margin-bottom:1.5rem}.mb3{margin-bottom:2.5rem}.mb4{margin-bottom:4rem}
+.tc{text-align:center}
+
+/* SHIMMER */
+.sh{background:linear-gradient(90deg,var(--gold) 0%,var(--goldl) 35%,#FFE099 50%,var(--goldl) 65%,var(--gold) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:sh 4s linear infinite}
+@keyframes sh{0%{background-position:-200% center}100%{background-position:200% center}}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fs);font-size:.79rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:3px;transition:all .2s;text-decoration:none}
+.btnp{color:var(--bg);background:var(--gold);padding:.82rem 2rem}
+.btnp:hover{background:var(--goldl);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,146,74,.25)}
+.btng{color:var(--text);background:transparent;border:1px solid var(--goldb);padding:.82rem 2rem}
+.btng:hover{border-color:var(--gold);color:var(--gold);background:var(--goldp)}
+.arrl{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--fs);font-size:.76rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:gap .2s}
+.arrl:hover{gap:.9rem}
+.arrl svg{width:15px;height:15px;flex-shrink:0}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s var(--eout),transform .7s var(--eout)}
+.rv.vi{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}
+
+/* DIVIDER */
+.div{height:1px;background:var(--border)}
+.divg{height:1px;background:linear-gradient(90deg,var(--gold),transparent 70%)}
+
+/* CARDS */
+.card{background:var(--bgc);border:1px solid var(--border);border-radius:14px;padding:2.5rem;transition:border-color .35s,transform .35s,box-shadow .35s}
+.card:hover{border-color:var(--goldb);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.cnum{font-family:var(--fs);font-size:.65rem;color:var(--gold);letter-spacing:.15em;display:block;margin-bottom:1.25rem}
+.cglass{background:rgba(255,255,255,.025);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.055);border-radius:12px;padding:2rem}
+
+/* CHIP */
+.chip{display:inline-block;font-family:var(--fs);font-size:.68rem;color:var(--ts);background:var(--bgc);border:1px solid var(--border);padding:.28rem .8rem;border-radius:50px;letter-spacing:.07em}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.ga{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem}
+.flex{display:flex}.fbet{display:flex;align-items:center;justify-content:space-between}.fcol{display:flex;flex-direction:column}.fwrap{flex-wrap:wrap}
+.gap1{gap:.75rem}.gap2{gap:1.5rem}.gap3{gap:2.5rem}
+
+/* STAT */
+.snum{font-family:var(--fd);font-size:clamp(2.8rem,4vw,4.2rem);font-weight:300;color:var(--gold);line-height:1;letter-spacing:-.02em}
+.slbl{font-family:var(--fs);font-size:.7rem;color:var(--ts);letter-spacing:.12em;text-transform:uppercase;margin-top:.4rem}
+
+/* TAG */
+.tag{display:inline-block;font-family:var(--fs);font-size:.62rem;font-weight:500;color:var(--gold);background:var(--goldp);border:1px solid var(--goldb);padding:.28rem .85rem;border-radius:50px;letter-spacing:.1em;text-transform:uppercase}
+
+/* ───── HOME ───── */
+/* HERO */
+.hero{min-height:100vh;padding:calc(var(--nav) + 5rem) 0 6rem;display:flex;align-items:center;position:relative;overflow:hidden}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hglow{position:absolute;top:-15%;right:-8%;width:65%;height:110%;background:radial-gradient(ellipse,rgba(184,146,74,.045) 0%,transparent 65%);pointer-events:none}
+.hfade{position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.hi{position:relative;z-index:2}
+.heyebrow{font-family:var(--fs);font-size:.68rem;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;display:flex;align-items:center;gap:.9rem;margin-bottom:2.2rem;opacity:0;animation:fup .7s var(--eout) 1.2s forwards}
+.heyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.hhead{font-family:var(--fd);font-size:clamp(3.4rem,8vw,7.2rem);font-weight:300;line-height:1.02;letter-spacing:-.028em;max-width:920px;opacity:0;animation:fup 1s var(--eout) 1.4s forwards}
+.hsub{font-size:1.05rem;line-height:1.72;color:var(--ts);font-weight:300;max-width:540px;margin-top:2rem;opacity:0;animation:fup .7s var(--eout) 1.7s forwards}
+.hact{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:3rem;opacity:0;animation:fup .7s var(--eout) 1.9s forwards}
+.hstats{display:flex;gap:4.5rem;flex-wrap:wrap;margin-top:5rem;padding-top:3rem;border-top:1px solid var(--border);opacity:0;animation:fup .7s var(--eout) 2.1s forwards}
+.hstatn{font-family:var(--fd);font-size:3rem;font-weight:300;line-height:1;letter-spacing:-.02em}
+.hstatl{font-family:var(--fs);font-size:.68rem;color:var(--tt);letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem}
+.hvert{position:absolute;right:2rem;top:50%;transform:translateY(-50%) rotate(90deg);font-family:var(--fs);font-size:.62rem;letter-spacing:.25em;color:var(--tt);text-transform:uppercase;white-space:nowrap;opacity:.45}
+.scroll-ind{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fin .8s var(--eout) 2.6s forwards}
+.scroll-line{width:1px;height:52px;background:linear-gradient(var(--gold),transparent);animation:scb 2s ease-in-out infinite}
+@keyframes scb{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.55)}}
+.scroll-txt{font-family:var(--fs);font-size:.58rem;letter-spacing:.2em;color:var(--tt);text-transform:uppercase}
+
+/* INTRO */
+.intg{display:grid;grid-template-columns:1fr 1.15fr;gap:6rem;align-items:center}
+.intq{font-family:var(--fd);font-size:clamp(1.3rem,2.2vw,2rem);font-weight:300;font-style:italic;color:var(--text);line-height:1.45;border-left:2px solid var(--gold);padding-left:1.6rem;margin-top:1.8rem}
+
+/* SERVICES GRID */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.si{background:var(--bg);padding:2.5rem;position:relative;overflow:hidden;transition:background .3s;cursor:pointer}
+.si::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .35s var(--eout)}
+.si:hover{background:var(--bgc)}.si:hover::after{transform:scaleX(1)}
+.sico{width:44px;height:44px;border:1px solid var(--goldb);border-radius:5px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:background .3s,border-color .3s}
+.si:hover .sico{background:var(--goldp);border-color:var(--gold)}
+.sico svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.stit{font-family:var(--fb);font-size:1rem;font-weight:500;margin-bottom:.65rem}
+.sdesc{font-size:.86rem;color:var(--ts);line-height:1.6}
+
+/* WHY SECTION */
+.tl{position:relative;padding-left:3rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+.ts{position:relative;padding-bottom:3rem}
+.ts:last-child{padding-bottom:0}
+.ts::before{content:'';position:absolute;left:-3rem;top:0;width:7px;height:7px;border-radius:50%;background:var(--gold);transform:translateX(-3px);box-shadow:0 0 0 4px rgba(184,146,74,.14)}
+.tnum{font-family:var(--fs);font-size:.65rem;color:var(--gold);letter-spacing:.15em;margin-bottom:.4rem}
+.ttit{font-size:1.1rem;font-weight:500;margin-bottom:.5rem}
+.tdesc{font-size:.88rem;color:var(--ts);line-height:1.65;max-width:480px}
+
+/* CTA BANNER */
+.ctab{background:var(--bgc);border:1px solid var(--goldb);border-radius:16px;padding:5rem 3rem;text-align:center;position:relative;overflow:hidden}
+.ctab::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ctab::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(184,146,74,.05) 0%,transparent 70%);pointer-events:none}
+
+/* INDUSTRY CARD */
+.ic{background:var(--bgc);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:all .3s var(--ease);cursor:pointer}
+.ic:hover{border-color:var(--gold);background:var(--goldp);transform:translateY(-6px)}
+.ici{font-size:2rem;margin-bottom:1rem}
+.icn{font-size:1rem;font-weight:500;margin-bottom:.4rem}
+.icd{font-size:.83rem;color:var(--ts);line-height:1.55}
+
+/* AI VISUAL */
+.aiv{background:var(--bgc);border:1px solid var(--border);border-radius:14px;padding:2rem;font-family:var(--fs);font-size:.77rem;color:var(--ts)}
+.aidot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:ap 2s ease-in-out infinite}
+.aidot.d2{animation-delay:.35s;background:rgba(184,146,74,.45)}
+.aidot.d3{animation-delay:.7s;background:rgba(184,146,74,.2)}
+@keyframes ap{0%,100%{opacity:1}50%{opacity:.25}}
+.aiins{margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(184,146,74,.07);border:1px solid var(--goldb);border-radius:8px}
+
+/* ───── ABOUT ───── */
+.val{border-top:1px solid var(--border);padding:2.2rem 0;display:grid;grid-template-columns:220px 1fr;gap:3.5rem;align-items:start;transition:border-color .2s}
+.val:hover{border-color:var(--gold)}
+.valn{font-family:var(--fd);font-size:1.35rem;font-weight:400}
+
+/* ───── SERVICES PAGE ───── */
+.scat{margin-bottom:5.5rem}
+.scath{border-bottom:1px solid var(--border);padding-bottom:2rem;margin-bottom:2.5rem}
+.slist{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.6rem}
+.sli{display:flex;align-items:flex-start;gap:.65rem;font-size:.86rem;color:var(--ts);padding:.7rem;border-radius:5px;transition:background .2s,color .2s}
+.sli:hover{background:var(--bgc);color:var(--text)}
+.sli::before{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--gold);margin-top:6px;flex-shrink:0}
+
+/* ───── PACKAGES ───── */
+.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:start}
+.pc{background:var(--bgc);border:1px solid var(--border);border-radius:16px;padding:2.5rem;transition:all .35s;position:relative;overflow:hidden}
+.pc.ft{background:var(--bg3);border-color:var(--goldb);transform:translateY(-10px)}
+.pc.ft::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--goldl))}
+.pc:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 28px 56px rgba(0,0,0,.35)}
+.pc.ft:hover{transform:translateY(-14px)}
+.pbdg{font-family:var(--fs);font-size:.62rem;font-weight:600;color:var(--bg);background:var(--gold);padding:.22rem .75rem;border-radius:50px;letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-bottom:1.25rem}
+.pname{font-family:var(--fd);font-size:1.75rem;font-weight:400;margin-bottom:.5rem}
+.pprice{font-family:var(--fd);font-size:3.2rem;font-weight:300;color:var(--gold);line-height:1;margin:1.5rem 0 .4rem}
+.pperiod{font-family:var(--fs);font-size:.72rem;color:var(--tt);letter-spacing:.1em;margin-bottom:2rem}
+.pdiv{height:1px;background:var(--border);margin:1.5rem 0}
+.pf{display:flex;align-items:flex-start;gap:.7rem;font-size:.86rem;color:var(--ts);margin-bottom:.85rem;line-height:1.45}
+.pf svg{width:15px;height:15px;stroke:var(--gold);fill:none;flex-shrink:0;margin-top:2px}
+
+/* ───── RESOURCES ───── */
+.rcard{background:var(--bgc);border:1px solid var(--border);border-radius:14px;padding:2.5rem;transition:all .3s;cursor:pointer}
+.rcard:hover{border-color:var(--gold);transform:translateY(-4px)}
+.rtype{font-family:var(--fs);font-size:.62rem;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+
+/* ───── CONTACT ───── */
+.cg{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:start}
+.flbl{display:block;font-family:var(--fs);font-size:.7rem;color:var(--ts);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.55rem}
+.finp,.fsel,.fta{width:100%;background:var(--bgc);border:1px solid var(--border);border-radius:5px;padding:.88rem 1.15rem;font-family:var(--fb);font-size:.9rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none}
+.finp:focus,.fsel:focus,.fta:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,74,.1)}
+.finp::placeholder,.fta::placeholder{color:var(--tt)}
+.fsel{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23848897' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer}
+.fsel option{background:var(--bgc);color:var(--text)}
+.fta{resize:vertical;min-height:130px;line-height:1.6}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{margin-bottom:1.4rem}
+.cii{display:flex;align-items:flex-start;gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--border)}
+.ciico{width:40px;height:40px;border:1px solid var(--goldb);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ciico svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.cilbl{font-size:.72rem;color:var(--ts);font-family:var(--fs);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.civ{font-size:.92rem}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:7rem 0 3rem}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4rem;padding-bottom:4rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.fbn{font-family:var(--fd);font-size:1.9rem;font-weight:400;margin-bottom:.5rem}
+.fbd{font-size:.86rem;color:var(--ts);line-height:1.6;max-width:270px}
+.fct{font-family:var(--fs);font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.4rem}
+.flinks{display:flex;flex-direction:column;gap:.7rem}
+.fl{font-size:.86rem;color:var(--ts);cursor:pointer;transition:color .2s}.fl:hover{color:var(--gold)}
+.fbottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.fcp{font-size:.78rem;color:var(--tt)}
+.fsocs{display:flex;gap:.75rem}
+.fsoc{width:36px;height:36px;border:1px solid var(--border);border-radius:5px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+.fsoc:hover{border-color:var(--gold);background:var(--goldp)}
+.fsoc svg{width:14px;height:14px;stroke:var(--ts);fill:none;stroke-width:1.5}
+.fsoc:hover svg{stroke:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .ft{grid-template-columns:1fr 1fr}
+  .intg{grid-template-columns:1fr;gap:3.5rem}
+  .cg{grid-template-columns:1fr;gap:3rem}
+  .pcards{grid-template-columns:1fr}
+  .pc.ft{transform:none}.pc.ft:hover{transform:translateY(-5px)}
+  .g3,.sg{grid-template-columns:1fr 1fr}
+  .g4{grid-template-columns:1fr 1fr}
+  .val{grid-template-columns:1fr;gap:1rem}
+}
+@media(max-width:768px){
+  :root{--nav:60px}
+  .nlinks,.ncta{display:none}
+  .ham{display:flex}
+  .g2,.g3,.g4,.sg{grid-template-columns:1fr}
+  .hstats{gap:2rem}
+  .hvert{display:none}
+  .hact{flex-direction:column;align-items:flex-start}
+  .fbet{flex-direction:column;gap:1.5rem;align-items:flex-start}
+  .ft{grid-template-columns:1fr;gap:2rem}
+  .fbottom{flex-direction:column}
+  .ctab{padding:3rem 1.5rem}
+  .frow{grid-template-columns:1fr}
+  .sec{padding:4.5rem 0}.sec2{padding:3.5rem 0}
+  .pcards{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div id="ls">
+  <div class="ll">Vision Partner</div>
+  <div class="lb"></div>
+</div>
+
+<!-- Scroll Progress -->
+<div id="sp"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="ni">
+    <div class="nlogo" onclick="go('home')">
+      <div class="nln">Vision Partner</div>
+      <div class="nlt">Strategic Communications</div>
+    </div>
+    <div class="nlinks">
+      <span class="nl" data-p="home" onclick="go('home')">Home</span>
+      <span class="nl" data-p="about" onclick="go('about')">About</span>
+      <span class="nl" data-p="services" onclick="go('services')">Services</span>
+      <span class="nl" data-p="industries" onclick="go('industries')">Industries</span>
+      <span class="nl" data-p="packages" onclick="go('packages')">Packages</span>
+      <span class="nl" data-p="resources" onclick="go('resources')">Resources</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <span class="ncta" onclick="go('contact')">Book Consultation</span>
+      <div class="ham" id="ham" onclick="toggleM()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div id="mnav">
+  <span class="nl" onclick="go('home');closeM()">Home</span>
+  <span class="nl" onclick="go('about');closeM()">About</span>
+  <span class="nl" onclick="go('services');closeM()">Services</span>
+  <span class="nl" onclick="go('industries');closeM()">Industries</span>
+  <span class="nl" onclick="go('packages');closeM()">Packages</span>
+  <span class="nl" onclick="go('resources');closeM()">Resources</span>
+  <span class="nl" onclick="go('contact');closeM()">Contact</span>
+</div>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div class="pg on" id="pg-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hgrid"></div>
+    <div class="hglow"></div>
+    <div class="hfade"></div>
+    <div class="w hi">
+      <div class="heyebrow">UAE · Lebanon · GCC · MENA</div>
+      <h1 class="hhead">
+        Strategic Communications<br>
+        &amp; Marketing Operations<br>
+        for <em>Ambitious</em> Businesses
+      </h1>
+      <p class="hsub">Helping organizations build visibility, optimize marketing execution, strengthen reputation, and accelerate growth — with precision, strategy, and executive-grade expertise.</p>
+      <div class="hact">
+        <button class="btn btnp" onclick="go('contact')">Book a Consultation <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        <button class="btn btng" onclick="go('services')">Explore Services</button>
+      </div>
+      <div class="hstats">
+        <div><div class="hstatn"><span class="counter" data-t="10">0</span><span class="gc">+</span></div><div class="hstatl">Industries Served</div></div>
+        <div><div class="hstatn"><span class="counter" data-t="7">0</span></div><div class="hstatl">Core Services</div></div>
+        <div><div class="hstatn"><span class="counter" data-t="4">0</span></div><div class="hstatl">MENA Markets</div></div>
+        <div><div class="hstatn" style="font-size:1.8rem;line-height:1.2">Fractional<br>Expert Model</div><div class="hstatl">Zero Overhead</div></div>
+      </div>
+    </div>
+    <div class="hvert">Strategic Growth Partner — MENA Region</div>
+    <div class="scroll-ind"><div class="scroll-line"></div><div class="scroll-txt">Scroll</div></div>
+  </section>
+
+  <!-- Intro -->
+  <section class="sec" style="background:var(--bg2)">
+    <div class="w intg">
+      <div>
+        <div class="lbl rv">Our Positioning</div>
+        <h2 class="dlg mt2 rv d1">Not an agency.<br>A <span class="sh">strategic partner.</span></h2>
+        <p class="blg mt3 rv d2">Vision Partner is a fractional marketing and communications consultancy — embedded in your operations, aligned with your goals, and focused on measurable growth.</p>
+        <p class="blg mt2 rv d3">We serve ambitious companies across the UAE, Lebanon, and the GCC — bringing enterprise-grade strategy to organizations at every stage of growth.</p>
+        <button class="arrl mt4 rv d4" onclick="go('about')">Our Story <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+      </div>
+      <div class="rv d2">
+        <blockquote class="intq">"The gap between ambition and execution is where most companies lose ground. We exist to close that gap — permanently."</blockquote>
+        <div class="g2 mt4" style="gap:1.25rem">
+          <div class="cglass"><div class="lbl" style="font-size:.6rem;margin-bottom:.65rem">Approach</div><p style="font-size:.88rem;font-weight:500;line-height:1.4">Fractional Expertise, Full-Scale Impact</p></div>
+          <div class="cglass"><div class="lbl" style="font-size:.6rem;margin-bottom:.65rem">Model</div><p style="font-size:.88rem;font-weight:500;line-height:1.4">Embedded Operations Partnership</p></div>
+          <div class="cglass"><div class="lbl" style="font-size:.6rem;margin-bottom:.65rem">Focus</div><p style="font-size:.88rem;font-weight:500;line-height:1.4">Visibility · Reputation · Growth</p></div>
+          <div class="cglass"><div class="lbl" style="font-size:.6rem;margin-bottom:.65rem">Markets</div><p style="font-size:.88rem;font-weight:500;line-height:1.4">UAE · Lebanon · GCC · MENA</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="sec">
+    <div class="w">
+      <div class="fbet mb4">
+        <div>
+          <div class="lbl rv">What We Do</div>
+          <h2 class="dmd mt2 rv d1">Integrated capabilities.<br>Singular focus on growth.</h2>
+        </div>
+        <button class="btn btng rv d2" onclick="go('services')">All Services</button>
+      </div>
+      <div class="sg rv d2">
+        <div class="si">
+          <div class="sico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="stit">Marketing Operations</div>
+          <div class="sdesc">Campaign planning, CRM management, analytics, and end-to-end execution infrastructure for growing organizations.</div>
+        </div>
+        <div class="si">
+          <div class="sico"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+          <div class="stit">Public Relations</div>
+          <div class="sdesc">Media outreach, press releases, journalist relations, crisis communications, and thought leadership placement.</div>
+        </div>
+        <div class="si">
+          <div class="sico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+          <div class="stit">Strategic Communications</div>
+          <div class="sdesc">Brand storytelling, corporate communications, and narrative development that positions your org for influence.</div>
+        </div>
+        <div class="si">
+          <div class="sico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="stit">Executive Branding</div>
+          <div class="sdesc">LinkedIn thought leadership, personal brand positioning, and executive visibility programs for CEOs and founders.</div>
+        </div>
+        <div class="si">
+          <div class="sico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <div class="stit">Event Communications</div>
+          <div class="sdesc">Product launches, conferences, sponsorship visibility, speaker coordination, and post-event reporting.</div>
+        </div>
+        <div class="si">
+          <div class="sico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="stit">AI-Enhanced Marketing</div>
+          <div class="sdesc">AI-powered content creation, competitive analysis, automated reporting, and SEO optimization at scale.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why VP -->
+  <section class="sec" style="background:var(--bg2)">
+    <div class="w">
+      <div class="lbl rv mb4">Why Vision Partner</div>
+      <div class="g2" style="gap:4rem;align-items:start">
+        <div>
+          <h2 class="dmd rv">The operating model that<br>changes everything.</h2>
+          <div class="tl mt4">
+            <div class="ts rv"><div class="tnum">01 — Advantage</div><div class="ttit">Senior expertise, fractional cost</div><div class="tdesc">Access enterprise-grade communications leadership without the overhead of a full-time executive team.</div></div>
+            <div class="ts rv d1"><div class="tnum">02 — Advantage</div><div class="ttit">Embedded, not outsourced</div><div class="tdesc">We operate as an extension of your team — inside your processes, aligned to your KPIs, accountable to your results.</div></div>
+            <div class="ts rv d2"><div class="tnum">03 — Advantage</div><div class="ttit">Regional expertise, global standards</div><div class="tdesc">Deep knowledge of UAE, Lebanon, and GCC markets combined with international communications best practices.</div></div>
+            <div class="ts rv d3"><div class="tnum">04 — Advantage</div><div class="ttit">AI-augmented execution</div><div class="tdesc">We leverage cutting-edge AI tools to amplify output, accelerate timelines, and deliver deeper market intelligence.</div></div>
+          </div>
+        </div>
+        <div class="rv d2">
+          <div class="card" style="padding:2.5rem;position:relative;overflow:hidden">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)"></div>
+            <div class="lbl mb3">Core Capabilities</div>
+            <div style="display:flex;flex-direction:column;gap:.9rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:var(--bg2);border-radius:5px"><span style="font-size:.9rem">Marketing Operations</span><span style="font-family:var(--fs);font-size:.65rem;color:var(--gold);letter-spacing:.1em">FULL-SERVICE</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:var(--bg2);border-radius:5px"><span style="font-size:.9rem">Public Relations</span><span style="font-family:var(--fs);font-size:.65rem;color:var(--gold);letter-spacing:.1em">REGIONAL</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:var(--bg2);border-radius:5px"><span style="font-size:.9rem">Executive Branding</span><span style="font-family:var(--fs);font-size:.65rem;color:var(--gold);letter-spacing:.1em">C-SUITE</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:var(--bg2);border-radius:5px"><span style="font-size:.9rem">AI-Enhanced Marketing</span><span style="font-family:var(--fs);font-size:.65rem;color:var(--gold);letter-spacing:.1em">ADVANCED</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:var(--bg2);border-radius:5px"><span style="font-size:.9rem">Event Communications</span><span style="font-family:var(--fs);font-size:.65rem;color:var(--gold);letter-spacing:.1em">END-TO-END</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="sec">
+    <div class="w">
+      <div class="lbl c rv">Industries</div>
+      <h2 class="dmd tc mt2 rv d1">Built for sectors that demand<br>the highest standards.</h2>
+      <p class="bmd tc mt2 rv d2" style="max-width:520px;margin:1rem auto 0">From fintech to luxury retail, specialized approaches for the MENA region's most competitive industries.</p>
+      <div class="g4 mt5 rv d2">
+        <div class="ic"><div class="ici">🏦</div><div class="icn">Banking & Finance</div><div class="icd">Executive communications for financial institutions.</div></div>
+        <div class="ic"><div class="ici">₿</div><div class="icn">Fintech</div><div class="icd">Thought leadership for the region's fastest-growing sector.</div></div>
+        <div class="ic"><div class="ici">🏗️</div><div class="icn">Real Estate</div><div class="icd">Developer branding and launch campaigns across GCC.</div></div>
+        <div class="ic"><div class="ici">🏨</div><div class="icn">Hospitality</div><div class="icd">Brand storytelling for hotels and hospitality brands.</div></div>
+        <div class="ic"><div class="ici">💎</div><div class="icn">Luxury Retail</div><div class="icd">Premium positioning for high-end retail brands.</div></div>
+        <div class="ic"><div class="ici">🏥</div><div class="icn">Healthcare</div><div class="icd">Trust-focused communications for clinics and hospitals.</div></div>
+        <div class="ic"><div class="ici">🛒</div><div class="icn">E-Commerce</div><div class="icd">Growth operations for digital-first businesses.</div></div>
+        <div class="ic"><div class="ici">👔</div><div class="icn">Executives</div><div class="icd">Personal brand & LinkedIn authority building.</div></div>
+      </div>
+      <div class="tc mt4 rv d3"><button class="btn btng" onclick="go('industries')">View All Industries</button></div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="sec" style="background:var(--bg2)">
+    <div class="w">
+      <div style="display:flex;gap:5rem;flex-wrap:wrap;align-items:start">
+        <div style="max-width:400px">
+          <div class="lbl rv">How We Work</div>
+          <h2 class="dmd mt2 rv d1">A structured approach to measurable results.</h2>
+          <p class="blg mt3 rv d2">Every engagement begins with deep strategic alignment and ends with clear, documented outcomes.</p>
+          <button class="btn btnp mt4 rv d3" onclick="go('contact')">Start the Conversation</button>
+        </div>
+        <div style="flex:1;min-width:300px">
+          <div class="tl">
+            <div class="ts rv"><div class="tnum">Phase 01</div><div class="ttit">Discovery & Audit</div><div class="tdesc">Comprehensive review of your current marketing and communications infrastructure, identifying gaps, opportunities, and strategic priorities.</div></div>
+            <div class="ts rv d1"><div class="tnum">Phase 02</div><div class="ttit">Strategy Development</div><div class="tdesc">A tailored communications and marketing strategy with clear objectives, KPIs, and a 90-day execution roadmap.</div></div>
+            <div class="ts rv d2"><div class="tnum">Phase 03</div><div class="ttit">Embedded Execution</div><div class="tdesc">Our team integrates with yours — executing across all agreed channels and workstreams with weekly reporting and full transparency.</div></div>
+            <div class="ts rv d3"><div class="tnum">Phase 04</div><div class="ttit">Optimization & Scale</div><div class="tdesc">Continuous performance analysis and monthly strategy reviews ensure we're always improving and scaling what works.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Section -->
+  <section class="sec">
+    <div class="w">
+      <div class="g2" style="gap:5rem;align-items:center">
+        <div>
+          <div class="lbl rv">AI-Augmented</div>
+          <h2 class="dmd mt2 rv d1">Marketing intelligence,<br>amplified by AI.</h2>
+          <p class="blg mt3 rv d2">We don't just use AI — we integrate it strategically into every layer of our service delivery to give clients a measurable competitive advantage.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-top:2rem">
+            <div class="rv d2" style="display:flex;gap:1rem;padding:1rem;border:1px solid var(--border);border-radius:6px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+              <span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;margin-top:2px">→</span>
+              <div><div style="font-size:.9rem;font-weight:500;margin-bottom:.25rem">AI Content & PR Drafting</div><div class="bmd" style="font-size:.83rem">Accelerate content production without sacrificing quality or brand voice.</div></div>
+            </div>
+            <div class="rv d3" style="display:flex;gap:1rem;padding:1rem;border:1px solid var(--border);border-radius:6px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+              <span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;margin-top:2px">→</span>
+              <div><div style="font-size:.9rem;font-weight:500;margin-bottom:.25rem">Market & Competitive Intelligence</div><div class="bmd" style="font-size:.83rem">Real-time industry monitoring and competitor analysis to keep you ahead.</div></div>
+            </div>
+            <div class="rv d4" style="display:flex;gap:1rem;padding:1rem;border:1px solid var(--border);border-radius:6px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+              <span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;margin-top:2px">→</span>
+              <div><div style="font-size:.9rem;font-weight:500;margin-bottom:.25rem">Automated Reporting & Analytics</div><div class="bmd" style="font-size:.83rem">Intelligent dashboards and automated reports that surface what matters most.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="rv d2">
+          <div class="aiv">
+            <div style="display:flex;gap:.5rem;margin-bottom:1.5rem"><div style="width:10px;height:10px;border-radius:50%;background:#ff5f57"></div><div style="width:10px;height:10px;border-radius:50%;background:#febc2e"></div><div style="width:10px;height:10px;border-radius:50%;background:#28c840"></div></div>
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem"><div class="aidot"></div><span style="color:var(--gold)">Analyzing market positioning for fintech sector...</span></div>
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem"><div class="aidot d2"></div><span>Competitor landscape mapped across 14 variables</span></div>
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem"><div class="aidot d3"></div><span>Generating executive brief for Q3 strategy...</span></div>
+            <div class="aiins">
+              <div style="font-size:.68rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.5rem">INSIGHT GENERATED</div>
+              <p style="font-size:.81rem;color:var(--text);line-height:1.55">"3 high-value media opportunities identified in the Fintech sector. Recommended outreach window: next 10 days. Estimated reach: 125,000+ decision-makers."</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:.75rem"><div class="aidot"></div><span>PR calendar auto-populated. 12 placements queued. ✓</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="sec2">
+    <div class="w">
+      <div class="ctab rv">
+        <div class="lbl c mb3">Ready to Begin</div>
+        <h2 class="dlg" style="max-width:680px;margin:0 auto 1.5rem">The right communications<br>strategy changes everything.</h2>
+        <p class="blg" style="max-width:480px;margin:0 auto 3rem">Let's explore what Vision Partner can unlock for your organization across the MENA region.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <button class="btn btnp" onclick="go('contact')">Book a Strategy Call</button>
+          <button class="btn btng" onclick="go('packages')">View Packages</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="w">
+      <div class="ft">
+        <div><div class="fbn">Vision Partner</div><div class="fbd">Fractional Marketing Operations & Strategic Communications for ambitious organizations across the MENA region.</div><div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem"><span class="chip">UAE</span><span class="chip">Lebanon</span><span class="chip">GCC</span><span class="chip">MENA</span></div></div>
+        <div><div class="fct">Services</div><div class="flinks"><span class="fl" onclick="go('services')">Marketing Operations</span><span class="fl" onclick="go('services')">Public Relations</span><span class="fl" onclick="go('services')">Executive Branding</span><span class="fl" onclick="go('services')">AI Marketing</span><span class="fl" onclick="go('services')">Event Communications</span></div></div>
+        <div><div class="fct">Company</div><div class="flinks"><span class="fl" onclick="go('about')">About</span><span class="fl" onclick="go('industries')">Industries</span><span class="fl" onclick="go('packages')">Packages</span><span class="fl" onclick="go('resources')">Resources</span><span class="fl" onclick="go('contact')">Contact</span></div></div>
+        <div><div class="fct">Get in Touch</div><div class="flinks"><span class="fl" style="cursor:default">hello@visionpartner.ae</span><span class="fl" style="cursor:default">UAE · Lebanon · GCC</span></div><button class="btn btnp" style="margin-top:1.5rem;font-size:.72rem;padding:.55rem 1.2rem" onclick="go('contact')">Book Consultation →</button></div>
+      </div>
+      <div class="fbottom"><div class="fcp">© 2025 Vision Partner. All rights reserved.</div><div class="fsocs"><div class="fsoc"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div><div class="fsoc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div class="fsoc"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></div></div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<div class="pg" id="pg-about">
+  <section style="padding:calc(var(--nav) + 5rem) 0 5rem;background:var(--bg2);position:relative;overflow:hidden">
+    <div style="position:absolute;right:-5%;top:-10%;font-family:var(--fd);font-size:18vw;font-weight:300;color:rgba(255,255,255,.012);pointer-events:none;line-height:1">VP</div>
+    <div class="w">
+      <div class="lbl rv">Our Story</div>
+      <h1 class="dxl mt2 rv d1" style="max-width:820px">A different kind of<br>communications <em>partner.</em></h1>
+      <p class="blg mt4 rv d2" style="max-width:560px">Vision Partner was built for the gap between ambition and execution — the space where most organizations lose momentum, market share, and opportunity.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="w intg">
+      <div>
+        <div class="lbl rv">Who We Are</div>
+        <h2 class="dmd mt2 rv d1">Strategists.<br>Communicators.<br>Operators.</h2>
+        <p class="blg mt3 rv d2">We are a specialized fractional consultancy combining the discipline of management consulting with the creativity of communications strategy. Our team brings together senior expertise across marketing operations, public relations, executive branding, and digital communications.</p>
+        <p class="blg mt2 rv d3">What sets us apart is our operating model — we don't pitch campaigns and disappear. We embed with your organization, understand your business at depth, and build sustainable communications infrastructure that compounds over time.</p>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem" class="rv d2">
+          <div class="card"><div class="cnum">Mission</div><p style="font-size:.9rem;font-style:italic;line-height:1.55;color:var(--text)">"To close the gap between ambition and execution for every client we serve."</p></div>
+          <div class="card"><div class="cnum">Vision</div><p style="font-size:.9rem;font-style:italic;line-height:1.55;color:var(--text)">"To be the most trusted strategic communications partner in the MENA region."</p></div>
+          <div class="card" style="grid-column:1/-1"><div class="cnum">Philosophy</div><p class="bmd">Strategy without execution is a document. Execution without strategy is noise. We operate at the intersection — translating vision into systems, and systems into results.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--bg2)">
+    <div class="w">
+      <div class="lbl rv mb4">Core Values</div>
+      <div class="val rv"><div class="valn">Strategic Depth</div><p class="bmd">We don't execute tactics without strategy. Every deliverable connects to a larger objective, and every objective connects to measurable business outcomes. We start with the question: "What does success actually look like?"</p></div>
+      <div class="val rv"><div class="valn">Embedded Partnership</div><p class="bmd">We operate as an extension of your team. We attend your planning sessions, understand your competitive landscape, and build systems that outlast our engagement. Our clients grow; so does our work with them.</p></div>
+      <div class="val rv"><div class="valn">Precision Execution</div><p class="bmd">In communications, timing and accuracy are everything. We operate with the discipline of a financial organization — systematic, documented, and accountable. Every campaign, press release, and report is executed to a defined standard.</p></div>
+      <div class="val rv"><div class="valn">Regional Intelligence</div><p class="bmd">The UAE, Lebanese, and GCC markets have distinct dynamics. Our work is informed by deep regional knowledge, cultural fluency, and established media relationships built over years of operating at the region's center.</p></div>
+      <div class="val rv"><div class="valn">Intelligent Innovation</div><p class="bmd">We adopt emerging tools — especially AI — not for novelty, but for genuine competitive advantage. Our clients benefit from capabilities that most organizations in the region haven't yet discovered.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="w">
+      <div class="g2" style="gap:5rem;align-items:center">
+        <div>
+          <div class="lbl rv">Market Focus</div>
+          <h2 class="dmd mt2 rv d1">Built for the<br>MENA region.</h2>
+          <p class="blg mt3 rv d2">The UAE and Lebanon are two of the region's most dynamic communications ecosystems. We've built our practice at the center of both — with the network, knowledge, and cultural insight to serve ambitious organizations across the GCC.</p>
+          <div style="display:flex;gap:3rem;margin-top:3rem;flex-wrap:wrap" class="rv d3">
+            <div><div class="snum">UAE</div><div class="slbl">Primary Market</div></div>
+            <div><div class="snum">LB</div><div class="slbl">Core Market</div></div>
+            <div><div class="snum">GCC</div><div class="slbl">Regional Reach</div></div>
+          </div>
+        </div>
+        <div class="ctab rv d2">
+          <h3 class="hlg mb2">Ready to build something exceptional?</h3>
+          <p class="bmd" style="margin-bottom:2rem">Let's explore whether Vision Partner is the right fit for your organization's next chapter.</p>
+          <button class="btn btnp" onclick="go('contact')">Start the Conversation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="w">
+      <div class="ft">
+        <div><div class="fbn">Vision Partner</div><div class="fbd">Fractional Marketing Operations & Strategic Communications across the MENA region.</div></div>
+        <div><div class="fct">Navigate</div><div class="flinks"><span class="fl" onclick="go('home')">Home</span><span class="fl" onclick="go('services')">Services</span><span class="fl" onclick="go('packages')">Packages</span><span class="fl" onclick="go('contact')">Contact</span></div></div>
+        <div><div class="fct">Industries</div><div class="flinks"><span class="fl" onclick="go('industries')">Fintech & Banking</span><span class="fl" onclick="go('industries')">Real Estate</span><span class="fl" onclick="go('industries')">Hospitality</span><span class="fl" onclick="go('industries')">Healthcare</span></div></div>
+        <div><div class="fct">Contact</div><div class="flinks"><span class="fl" style="cursor:default">hello@visionpartner.ae</span></div><button class="btn btnp" style="margin-top:1.5rem;font-size:.72rem;padding:.55rem 1.2rem" onclick="go('contact')">Book Consultation →</button></div>
+      </div>
+      <div class="fbottom"><div class="fcp">© 2025 Vision Partner. All rights reserved.</div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<div class="pg" id="pg-services">
+  <section style="padding:calc(var(--nav) + 5rem) 0 5rem;background:var(--bg2)">
+    <div class="w">
+      <div class="lbl rv">Services</div>
+      <h1 class="dxl mt2 rv d1">Integrated services.<br><em>Singular focus.</em></h1>
+      <p class="blg mt4 rv d2" style="max-width:540px">Each service area works independently or as part of a fully integrated engagement — giving clients the flexibility they need and the depth they deserve.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="w">
+
+      <div class="scat">
+        <div class="scath">
+          <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:2rem">
+            <div><span class="tag">Operations</span><h2 class="dmd mt2 rv">Marketing Operations</h2></div>
+            <p class="bmd rv d1" style="max-width:360px">End-to-end infrastructure for marketing execution — from strategy to reporting, we build the systems that make growth sustainable.</p>
+          </div>
+        </div>
+        <div class="g2" style="gap:3rem;align-items:start">
+          <div>
+            <div style="font-family:var(--fs);font-size:.65rem;color:var(--ts);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem">Services Include</div>
+            <div class="slist rv">
+              <div class="sli">Campaign Planning & Coordination</div><div class="sli">Marketing Calendar Management</div><div class="sli">CRM Management</div><div class="sli">Lead Funnel Tracking</div><div class="sli">Email Marketing Operations</div><div class="sli">Marketing Automation</div><div class="sli">KPI Dashboards</div><div class="sli">Vendor Coordination</div><div class="sli">Budget Tracking</div><div class="sli">Content Workflow Management</div><div class="sli">Event Coordination</div><div class="sli">Database Segmentation</div><div class="sli">Customer Journey Mapping</div><div class="sli">Performance Analytics</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:var(--fs);font-size:.65rem;color:var(--ts);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem">Key Deliverables</div>
+            <div style="display:flex;flex-direction:column;gap:1rem" class="rv d2">
+              <div class="card" style="padding:1.5rem"><div style="font-size:.88rem;font-weight:500;margin-bottom:.3rem">Monthly Execution Plans</div><div class="bmd" style="font-size:.82rem">Structured monthly marketing plans with clear ownership, timelines, and KPIs.</div></div>
+              <div class="card" style="padding:1.5rem"><div style="font-size:.88rem;font-weight:500;margin-bottom:.3rem">Weekly Analytics Reports</div><div class="bmd" style="font-size:.82rem">Performance dashboards tracking all key metrics across channels and campaigns.</div></div>
+              <div class="card" style="padding:1.5rem"><div style="font-size:.88rem;font-weight:500;margin-bottom:.3rem">SOP Development</div><div class="bmd" style="font-size:.82rem">Documented standard operating procedures for every marketing workflow.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divg" style="margin:3rem 0"></div>
+
+      <div class="scat">
+        <div class="scath">
+          <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:2rem">
+            <div><span class="tag">Visibility</span><h2 class="dmd mt2 rv">Public Relations</h2></div>
+            <p class="bmd rv d1" style="max-width:360px">Strategic media relations and reputation management that position your organization as the authority in your sector.</p>
+          </div>
+        </div>
+        <div class="slist rv">
+          <div class="sli">Press Release Writing</div><div class="sli">Media Outreach</div><div class="sli">Journalist Relations</div><div class="sli">Corporate Announcements</div><div class="sli">Executive Profiling</div><div class="sli">Crisis Communications</div><div class="sli">Brand Storytelling</div><div class="sli">Influencer Coordination</div><div class="sli">Publicity Campaigns</div><div class="sli">Award Submission Management</div><div class="sli">Event PR</div><div class="sli">Thought Leadership Content</div><div class="sli">Interview Preparation</div><div class="sli">Corporate Communications</div>
+        </div>
+      </div>
+
+      <div class="divg" style="margin:3rem 0"></div>
+
+      <div class="scat">
+        <div class="scath">
+          <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:2rem">
+            <div><span class="tag">Executive</span><h2 class="dmd mt2 rv">LinkedIn Executive Branding</h2></div>
+            <p class="bmd rv d1" style="max-width:360px">Transform your professional profile into a powerful business development engine.</p>
+          </div>
+        </div>
+        <div class="g2" style="gap:3rem">
+          <div class="slist rv"><div class="sli">Profile Optimization</div><div class="sli">Thought Leadership Strategy</div><div class="sli">Executive Content Writing</div><div class="sli">Lead Generation Support</div><div class="sli">Personal Brand Positioning</div></div>
+          <div class="rv d2">
+            <div style="font-family:var(--fs);font-size:.65rem;color:var(--ts);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem">Built For</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem"><span class="chip">Consultants</span><span class="chip">Banking Executives</span><span class="chip">Fintech Founders</span><span class="chip">Real Estate Professionals</span><span class="chip">Legal Professionals</span><span class="chip">CEOs & Founders</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divg" style="margin:3rem 0"></div>
+
+      <div class="scat">
+        <div class="scath">
+          <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:2rem">
+            <div><span class="tag">Social</span><h2 class="dmd mt2 rv">Social Media Management</h2></div>
+            <p class="bmd rv d1" style="max-width:360px">Consistent, high-quality social presence that builds brand equity and audience trust across every platform.</p>
+          </div>
+        </div>
+        <div class="slist rv"><div class="sli">Content Calendars</div><div class="sli">Platform Management</div><div class="sli">Community Engagement</div><div class="sli">Content Coordination</div><div class="sli">Scheduling & Publishing</div><div class="sli">Paid Campaign Support</div><div class="sli">Monthly Reporting</div></div>
+      </div>
+
+      <div class="divg" style="margin:3rem 0"></div>
+
+      <div class="scat">
+        <div class="scath">
+          <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:2rem">
+            <div><span class="tag">Events</span><h2 class="dmd mt2 rv">Event & Corporate Communications</h2></div>
+            <p class="bmd rv d1" style="max-width:360px">End-to-end communications support for product launches, conferences, and corporate events.</p>
+          </div>
+        </div>
+        <div class="slist rv"><div class="sli">Product Launches</div><div class="sli">Conferences</div><div class="sli">Internal Communications</div><div class="sli">Speaker Coordination</div><div class="sli">Sponsorship Visibility</div><div class="sli">Media Invitations</div><div class="sli">Post-Event Reporting</div></div>
+      </div>
+
+      <div class="divg" style="margin:3rem 0"></div>
+
+      <div class="scat">
+        <div class="scath">
+          <span class="tag">Innovation</span>
+          <h2 class="dmd mt2 rv">AI-Enhanced Marketing</h2>
+          <p class="bmd mt2 rv d1" style="max-width:520px">The future of marketing is intelligent, adaptive, and automated. We bring that future to your organization today.</p>
+        </div>
+        <div class="slist rv"><div class="sli">AI Content Creation</div><div class="sli">PR Drafting Automation</div><div class="sli">Market Research</div><div class="sli">Competitive Analysis</div><div class="sli">Campaign Ideation</div><div class="sli">Automated Reporting</div><div class="sli">Presentation Creation</div><div class="sli">SEO Optimization</div></div>
+      </div>
+
+      <div class="ctab rv mt5">
+        <h3 class="dmd mb3">Ready to discuss your needs?</h3>
+        <p class="blg" style="max-width:460px;margin:0 auto 2.5rem">Every engagement is tailored. Let's start with a strategy conversation to understand where Vision Partner can deliver the most impact.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <button class="btn btnp" onclick="go('contact')">Request a Consultation</button>
+          <button class="btn btng" onclick="go('packages')">See Pricing</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="w">
+      <div class="ft">
+        <div><div class="fbn">Vision Partner</div><div class="fbd">Fractional Marketing Operations & Strategic Communications across the MENA region.</div></div>
+        <div><div class="fct">Navigate</div><div class="flinks"><span class="fl" onclick="go('home')">Home</span><span class="fl" onclick="go('about')">About</span><span class="fl" onclick="go('packages')">Packages</span><span class="fl" onclick="go('contact')">Contact</span></div></div>
+        <div><div class="fct">Services</div><div class="flinks"><span class="fl">Marketing Operations</span><span class="fl">Public Relations</span><span class="fl">Executive Branding</span><span class="fl">AI Marketing</span></div></div>
+        <div><div class="fct">Contact</div><div class="flinks"><span class="fl" style="cursor:default">hello@visionpartner.ae</span></div><button class="btn btnp" style="margin-top:1.5rem;font-size:.72rem;padding:.55rem 1.2rem" onclick="go('contact')">Book Consultation →</button></div>
+      </div>
+      <div class="fbottom"><div class="fcp">© 2025 Vision Partner. All rights reserved.</div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ INDUSTRIES ═══════════ -->
+<div class="pg" id="pg-industries">
+  <section style="padding:calc(var(--nav) + 5rem) 0 5rem;background:var(--bg2)">
+    <div class="w">
+      <div class="lbl rv">Industries</div>
+      <h1 class="dxl mt2 rv d1">Sector expertise.<br><em>Specialized approach.</em></h1>
+      <p class="blg mt4 rv d2" style="max-width:520px">Purpose-built communications frameworks for each of the MENA region's most competitive and regulated sectors.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="w">
+      <!-- Financial Feature -->
+      <div style="background:var(--bgc);border:1px solid var(--goldb);border-radius:16px;padding:4rem;margin-bottom:5rem;position:relative;overflow:hidden" class="rv">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)"></div>
+        <div class="g2" style="gap:4rem;align-items:start">
+          <div>
+            <span class="tag">Featured Expertise</span>
+            <h2 class="dmd mt2">Financial Communications</h2>
+            <p class="blg mt3">The financial sector demands a unique combination of technical credibility, regulatory sensitivity, and executive-level positioning. We've built a specialized practice for precisely this environment.</p>
+            <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.8rem">
+              <div style="display:flex;gap:.75rem;align-items:center;font-size:.9rem"><span class="gc">→</span> Fintech Brand Communications & Positioning</div>
+              <div style="display:flex;gap:.75rem;align-items:center;font-size:.9rem"><span class="gc">→</span> Banking & Financial Services PR</div>
+              <div style="display:flex;gap:.75rem;align-items:center;font-size:.9rem"><span class="gc">→</span> C-Suite Executive Branding for Financial Leaders</div>
+              <div style="display:flex;gap:.75rem;align-items:center;font-size:.9rem"><span class="gc">→</span> Payments Industry Event Communications</div>
+              <div style="display:flex;gap:.75rem;align-items:center;font-size:.9rem"><span class="gc">→</span> LinkedIn Visibility for Financial Professionals</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:var(--fs);font-size:.65rem;color:var(--ts);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem">Why Financial Clients Choose Us</div>
+            <div style="display:flex;flex-direction:column;gap:1rem">
+              <div class="card" style="padding:1.25rem"><div style="font-size:.88rem;font-weight:500;margin-bottom:.25rem">Regulatory Sensitivity</div><div class="bmd" style="font-size:.82rem">We understand compliance requirements and craft communications that meet them without sacrificing impact.</div></div>
+              <div class="card" style="padding:1.25rem"><div style="font-size:.88rem;font-weight:500;margin-bottom:.25rem">Established Media Relationships</div><div class="bmd" style="font-size:.82rem">Direct access to financial media, editors, and journalists across the MENA region.</div></div>
+              <div class="card" style="padding:1.25rem"><div style="font-size:.88rem;font-weight:500;margin-bottom:.25rem">Executive-Level Discretion</div><div class="bmd" style="font-size:.82rem">Senior-level confidentiality and precision — essential for financial sector communications.</div></div>
+            </div>
+          </div>
+   
+        </div>
+      </div>
+
+      <!-- All Industries -->
+      <div class="lbl c rv mb4" style="margin-top:5rem">All Sectors</div>
+      <h2 class="dmd tc rv d1" style="margin-bottom:3rem">Every industry. Tailored approach.</h2>
+      <div class="ga rv d2">
+        <div class="ic"><div class="ici">₿</div><div class="icn">Fintech</div><div class="icd">Brand positioning, thought leadership, and investor communications for fintech companies navigating rapid growth.</div></div>
+        <div class="ic"><div class="ici">🏦</div><div class="icn">Banking</div><div class="icd">Corporate communications, PR, and executive branding for banks and financial institutions in the GCC.</div></div>
+        <div class="ic"><div class="ici">🏗️</div><div class="icn">Real Estate</div><div class="icd">Project launch campaigns, developer branding, and investor relations for real estate companies.</div></div>
+        <div class="ic"><div class="ici">🏨</div><div class="icn">Hospitality</div><div class="icd">Reputation management, brand storytelling, and PR for hotels and hospitality brands.</div></div>
+        <div class="ic"><div class="ici">💎</div><div class="icn">Luxury Retail</div><div class="icd">Premium brand positioning and editorial communications for luxury and high-end retail brands.</div></div>
+        <div class="ic"><div class="ici">🏥</div><div class="icn">Healthcare</div><div class="icd">Clinic and healthcare brand communications focused on trust, credibility, and patient education.</div></div>
+        <div class="ic"><div class="ici">🍽️</div><div class="icn">Restaurants</div><div class="icd">Launch PR, social media management, and brand storytelling for restaurant concepts and F&B groups.</div></div>
+        <div class="ic"><div class="ici">🛒</div><div class="icn">E-Commerce</div><div class="icd">Growth-focused marketing operations and communications for digital-first businesses.</div></div>
+        <div class="ic"><div class="ici">👤</div><div class="icn">Personal Brands</div><div class="icd">Executive presence, LinkedIn strategy, and media positioning for thought leaders and professionals.</div></div>
+        <div class="ic"><div class="ici">📊</div><div class="icn">Consultants</div><div class="icd">Business development communications and brand positioning for independent consultants.</div></div>
+      </div>
+      <div class="ctab rv mt5">
+        <h3 class="dmd mb3">Serving your sector with precision.</h3>
+        <p class="blg" style="max-width:460px;margin:0 auto 2.5rem">Every engagement starts with deep sector knowledge. Tell us about your organization and we'll design the right approach.</p>
+        <button class="btn btnp" onclick="go('contact')">Discuss Your Industry →</button>
+      </div>
+    </div>
+  </section>
+  <footer><div class="w"><div class="ft"><div><div class="fbn">Vision Partner</div><div class="fbd">Fractional Marketing Operations &amp; Strategic Communications across the MENA region.</div></div><div><div class="fct">Navigate</div><div class="flinks"><span class="fl" onclick="go('home')">Home</span><span class="fl" onclick="go('about')">About</span><span class="fl" onclick="go('services')">Services</span><span class="fl" onclick="go('contact')">Contact</span></div></div><div><div class="fct">Markets</div><div class="flinks"><span class="fl" style="cursor:default">UAE</span><span class="fl" style="cursor:default">Lebanon</span><span class="fl" style="cursor:default">GCC Region</span><span class="fl" style="cursor:default">MENA</span></div></div><div><div class="fct">Contact</div><div class="flinks"><span class="fl" style="cursor:default">hello@visionpartner.ae</span></div><button class="btn btnp" style="margin-top:1.5rem;font-size:.72rem;padding:.55rem 1.2rem" onclick="go('contact')">Book Consultation →</button></div></div><div class="fbottom"><div class="fcp">© 2025 Vision Partner. All rights reserved.</div></div></div></footer>
+</div>
+
+<!-- PACKAGES -->
+<div class="pg" id="pg-packages">
+  <section style="padding:calc(var(--nav) + 5rem) 0 5rem;background:var(--bg2);text-align:center"><div class="w"><div class="lbl c rv">Transparent Pricing</div><h1 class="dxl mt2 rv d1">Investment structures<br>built for <em>growth.</em></h1><p class="blg mt4 rv d2" style="max-width:500px;margin:1.5rem auto 0">Three engagement tiers for different stages of organizational growth — from establishing visibility to full executive-level positioning.</p></div></section>
+  <section class="sec"><div class="w">
+    <div class="pcards rv">
+      <div class="pc"><div class="pname">Starter</div><p class="bmd" style="font-size:.86rem;margin-top:.5rem">Establish digital presence and brand consistency with foundational communications support.</p><div class="pprice">$500<span style="font-size:1.6rem;color:var(--ts)">–1K</span></div><div class="pperiod">per month · rolling engagement</div><div class="pdiv"></div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Social Media Management (3 platforms)</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Content Calendar Planning</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Content Scheduling &amp; Publishing</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Monthly Performance Report</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Basic Brand Consistency Review</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Community Engagement (weekly)</div><button class="btn btng" style="width:100%;justify-content:center;margin-top:2rem" onclick="go('contact')">Get Started</button></div>
+      <div class="pc ft"><div class="pbdg">Most Popular</div><div class="pname">Growth</div><p class="bmd" style="font-size:.86rem;margin-top:.5rem">Comprehensive marketing infrastructure for organizations ready to scale operations and market presence.</p><div class="pprice">$1,500<span style="font-size:1.6rem;color:var(--ts)">–3K</span></div><div class="pperiod">per month · 3-month minimum</div><div class="pdiv"></div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Full Marketing Operations Management</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>PR Coordination &amp; Media Outreach</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>CRM Setup &amp; Ongoing Tracking</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Analytics Dashboard &amp; Weekly Reports</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Content Management (all channels)</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Weekly Strategy &amp; Reporting Calls</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>AI-Enhanced Content Production</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Press Releases (2/month)</div><button class="btn btnp" style="width:100%;justify-content:center;margin-top:2rem" onclick="go('contact')">Apply Now →</button></div>
+      <div class="pc"><div class="pname">Executive</div><p class="bmd" style="font-size:.86rem;margin-top:.5rem">Full-scale executive presence and high-impact communications for leaders demanding the highest tier.</p><div class="pprice">$2,000<span style="font-size:1.6rem;color:var(--ts)">–5K</span></div><div class="pperiod">per month · custom engagement</div><div class="pdiv"></div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Executive Branding Strategy</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>LinkedIn Thought Leadership (daily)</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Media Outreach &amp; Placement</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Personal Brand Positioning</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Speaking Opportunity Development</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Full PR &amp; Media Relations</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Crisis Communications Coverage</div><div class="pf"><svg viewBox="0 0 16 16" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 8l4 4 6-7"/></svg>Dedicated Strategy Director</div><button class="btn btng" style="width:100%;justify-content:center;margin-top:2rem" onclick="go('contact')">Schedule Briefing</button></div>
+    </div>
+    <div class="tc mt4 rv d1"><p class="bmd" style="font-size:.84rem">All packages are customizable. Engagements start with a complimentary strategy consultation.</p><div style="display:flex;gap:.6rem;justify-content:center;margin-top:1.25rem;flex-wrap:wrap"><span class="chip">No lock-in on Starter</span><span class="chip">Custom scopes available</span><span class="chip">Consultation included</span></div></div>
+    <div class="ctab rv mt5"><h3 class="dmd mb3">Not sure which tier is right?</h3><p class="blg" style="max-width:460px;margin:0 auto 2.5rem">Every engagement begins with a strategy conversation. We'll assess your needs and recommend the optimal structure.</p><button class="btn btnp" onclick="go('contact')">Book a Free Strategy Call →</button></div>
+  </div></section>
+  <footer><div class="w"><div class="ft"><div><div class="fbn">Vision Partner</div><div class="fbd">Fractional Marketing Operations &amp; Strategic Communications across the MENA region.</div></div><div><div class="fct">Packages</div><div class="flinks"><span class="fl" style="cursor:default">Starter — $500–1K/mo</span><span class="fl" style="cursor:default">Growth — $1.5K–3K/mo</span><span class="fl" style="cursor:default">Executive — $2K–5K/mo</span></div></div><div><div class="fct">Navigate</div><div class="flinks"><span class="fl" onclick="go('home')">Home</span><span class="fl" onclick="go('about')">About</span><span class="fl" onclick="go('services')">Services</span><span class="fl" onclick="go('industries')">Industries</span></div></div><div><div class="fct">Contact</div><div class="flinks"><span class="fl" style="cursor:default">hello@visionpartner.ae</span></div><button class="btn btnp" style="margin-top:1.5rem;font-size:.72rem;padding:.55rem 1.2rem" onclick="go('contact')">Book Consultation →</button></div></div><div class="fbottom"><div class="fcp">© 2025 Vision Partner. All rights reserved.</div></div></div></footer>
+</div>
+
+<!-- RESOURCES -->
+<div class="pg" id="pg-resources">
+  <section style="padding:calc(var(--nav) + 5rem) 0 5rem;background:var(--bg2)"><div class="w"><div class="lbl rv">Resources</div><h1 class="dxl mt2 rv d1">Strategic intelligence<br>for ambitious <em>leaders.</em></h1><p class="blg mt4 rv d2" style="max-width:540px">Curated insights, frameworks, and guides developed from our work at the intersection of marketing operations and strategic communications.</p></div></section>
+  <section class="sec"><div class="w">
+    <div style="display:flex;gap:.6rem;margin-bottom:3rem;flex-wrap:wrap" class="rv"><span class="chip" style="cursor:pointer;border-color:var(--gold);color:var(--gold)">All Resources</span><span class="chip" style="cursor:pointer">Marketing Insights</span><span class="chip" style="cursor:pointer">PR &amp; Communications</span><span class="chip" style="cursor:pointer">AI Marketing</span><span class="chip" style="cursor:pointer">Executive Branding</span><span class="chip" style="cursor:pointer">Industry Reports</span></div>
+    <div class="ga rv d1">
+      <div class="rcard"><div class="rtype">Marketing Operations</div><h3 class="hmd mb2">The Marketing Operations Maturity Model</h3><p class="bmd" style="font-size:.87rem;margin-bottom:1.5rem">A framework for assessing and advancing your organization's marketing infrastructure across five key dimensions.</p><div class="arrl">Read Guide <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div></div>
+      <div class="rcard"><div class="rtype">PR Strategy</div><h3 class="hmd mb2">MENA Media Landscape Report 2025</h3><p class="bmd" style="font-size:.87rem;margin-bottom:1.5rem">A comprehensive overview of the UAE and regional media ecosystem — key publications, journalists, and emerging channels.</p><div class="arrl">Download Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div></div>
+      <div class="rcard"><div class="rtype">AI Marketing</div><h3 class="hmd mb2">AI Tools for Marketing Teams: A Practical Guide</h3><p class="bmd" style="font-size:.87rem;margin-bottom:1.5rem">The 12 most effective AI applications for MENA-based marketing and communications teams in 2025.</p><div class="arrl">Read Guide <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div></div>
+      <div class="rcard"><div class="rtype">Executive Branding</div><h3 class="hmd mb2">The Executive LinkedIn Playbook</h3><p class="bmd" style="font-size:.87rem;margin-bottom:1.5rem">How senior professionals across the GCC are building authority and generating business through strategic LinkedIn presence.</p><div class="arrl">Read Playbook <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div></div>
+      <div class="rcard"><div class="rtype">Industry Report</div><h3 class="hmd mb2">Fintech Communications in the GCC</h3><p class="bmd" style="font-size:.87rem;margin-bottom:1.5rem">How fintech companies are building brand trust while navigating a complex regulatory communications environment.</p><div class="arrl">Download Report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div></div>
+      <div class="rcard"><div class="rtype">Strategy Framework</div><h3 class="hmd mb2">The 90-Day Communications Sprint</h3><p class="bmd" style="font-size:.87rem;margin-bottom:1.5rem">A structured 12-week framework for building measurable visibility and media presence from a standing start.</p><div class="arrl">Download Framework <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div></div>
+    </div>
+    <div class="ctab rv mt5"><h3 class="dmd mb3">Stay ahead of the curve.</h3><p class="blg" style="max-width:460px;margin:0 auto 2.5rem">Exclusive market intelligence, PR frameworks, and marketing insights delivered to senior leaders across the MENA region.</p><div style="display:flex;gap:1rem;justify-content:center;max-width:460px;margin:0 auto;flex-wrap:wrap"><input type="email" placeholder="Your professional email" class="finp" style="flex:1;min-width:180px"><button class="btn btnp">Subscribe</button></div></div>
+  </div></section>
+  <footer><div class="w"><div class="ft"><div><div class="fbn">Vision Partner</div><div class="fbd">Fractional Marketing Operations &amp; Strategic Communications across the MENA region.</div></div><div><div class="fct">Navigate</div><div class="flinks"><span class="fl" onclick="go('home')">Home</span><span class="fl" onclick="go('about')">About</span><span class="fl" onclick="go('services')">Services</span><span class="fl" onclick="go('packages')">Packages</span></div></div><div><div class="fct">Resources</div><div class="flinks"><span class="fl">Marketing Insights</span><span class="fl">PR &amp; Communications</span><span class="fl">AI Marketing</span><span class="fl">Executive Branding</span></div></div><div><div class="fct">Contact</div><div class="flinks"><span class="fl" style="cursor:default">hello@visionpartner.ae</span></div><button class="btn btnp" style="margin-top:1.5rem;font-size:.72rem;padding:.55rem 1.2rem" onclick="go('contact')">Book Consultation →</button></div></div><div class="fbottom"><div class="fcp">© 2025 Vision Partner. All rights reserved.</div></div></div></footer>
+</div>
+
+<!-- CONTACT -->
+<div class="pg" id="pg-contact">
+  <section style="padding:calc(var(--nav) + 5rem) 0 5rem;background:var(--bg2)"><div class="w"><div class="lbl rv">Get in Touch</div><h1 class="dxl mt2 rv d1">Let's build something<br><em>remarkable.</em></h1><p class="blg mt4 rv d2" style="max-width:500px">Every great engagement begins with a conversation. Tell us about your organization and objectives — and we'll tell you exactly how Vision Partner can help.</p></div></section>
+  <section class="sec" style="background:var(--bg2)"><div class="w"><div class="cg">
+    <div>
+      <div class="lbl rv mb3">Contact Information</div>
+      <div class="cii rv"><div class="ciico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cilbl">Email</div><div class="civ">hello@visionpartner.ae</div></div></div>
+      <div class="cii rv d1"><div class="ciico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cilbl">Markets</div><div class="civ">UAE · Lebanon · GCC · MENA</div></div></div>
+      <div class="cii rv d2"><div class="ciico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="cilbl">Response Time</div><div class="civ">Within 24 business hours</div></div></div>
+      <div style="margin-top:3rem;padding:2rem;background:var(--bgc);border:1px solid var(--goldb);border-radius:14px" class="rv d3"><p style="font-family:var(--fd);font-size:1.15rem;font-style:italic;line-height:1.5;margin-bottom:1rem">"The right communications strategy pays for itself many times over. The question is not whether to invest — it's how quickly."</p><div style="font-family:var(--fs);font-size:.66rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase">— Vision Partner</div></div>
+    </div>
+    <div class="rv d2">
+      <div class="cglass" style="border-radius:16px;padding:3rem">
+        <div style="font-family:var(--fd);font-size:1.55rem;font-weight:400;margin-bottom:2rem">Book a Strategy Consultation</div>
+        <div class="frow"><div class="fg"><label class="flbl">First Name *</label><input type="text" class="finp" placeholder="Ahmad"></div><div class="fg"><label class="flbl">Last Name *</label><input type="text" class="finp" placeholder="Al-Rashid"></div></div>
+        <div class="fg"><label class="flbl">Company / Organization *</label><input type="text" class="finp" placeholder="Your company name"></div>
+        <div class="frow"><div class="fg"><label class="flbl">Title / Role</label><input type="text" class="finp" placeholder="CEO, Founder, Director..."></div><div class="fg"><label class="flbl">Email Address *</label><input type="email" class="finp" placeholder="you@company.com"></div></div>
+        <div class="fg"><label class="flbl">Service Interest</label><select class="fsel"><option value="">Select a service area</option><option>Marketing Operations</option><option>Public Relations</option><option>Strategic Communications</option><option>Executive Branding &amp; LinkedIn</option><option>Event Communications</option><option>AI-Enhanced Marketing</option><option>Full-Scope Engagement</option><option>Not sure — need guidance</option></select></div>
+        <div class="fg"><label class="flbl">Monthly Budget Range</label><select class="fsel"><option value="">Select budget range</option><option>$500 – $1,000/month (Starter)</option><option>$1,500 – $3,000/month (Growth)</option><option>$2,000 – $5,000/month (Executive)</option><option>$5,000+/month (Enterprise)</option><option>To be discussed</option></select></div>
+        <div class="fg"><label class="flbl">Tell us about your objectives</label><textarea class="fta" placeholder="What are your key communications and marketing challenges? What does success look like for your organization in the next 12 months?"></textarea></div>
+        <button class="btn btnp" style="width:100%;justify-content:center" id="fbtn" onclick="submitForm()">Submit Consultation Request <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        <p style="font-size:.76rem;color:var(--tt);text-align:center;margin-top:1rem">We respond within 24 business hours. All inquiries treated with strict confidentiality.</p>
+      </div>
+    </div>
+  </div></div></section>
+  <footer><div class="w"><div class="ft"><div><div class="fbn">Vision Partner</div><div class="fbd">Fractional Marketing Operations &amp; Strategic Communications across the MENA region.</div></div><div><div class="fct">Navigate</div><div class="flinks"><span class="fl" onclick="go('home')">Home</span><span class="fl" onclick="go('about')">About</span><span class="fl" onclick="go('services')">Services</span><span class="fl" onclick="go('packages')">Packages</span></div></div><div><div class="fct">Services</div><div class="flinks"><span class="fl">Marketing Operations</span><span class="fl">Public Relations</span><span class="fl">Executive Branding</span><span class="fl">AI Marketing</span></div></div><div><div class="fct">Contact</div><div class="flinks"><span class="fl" style="cursor:default">hello@visionpartner.ae</span><span class="fl" style="cursor:default">UAE · Lebanon · GCC</span></div></div></div><div class="fbottom"><div class="fcp">© 2025 Vision Partner. All rights reserved.</div><div class="fsocs"><div class="fsoc"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div><div class="fsoc"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div></div></div></div></footer>
+</div>
+
+<script>
+let cur='home';
+function go(id){
+  if(id===cur){window.scrollTo({top:0,behavior:'smooth'});return;}
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  const pg=document.getElementById('pg-'+id);
+  if(!pg)return;
+  pg.classList.add('on');
+  cur=id;
+  document.querySelectorAll('.nl').forEach(l=>l.classList.toggle('on',l.dataset.p===id));
+  window.scrollTo(0,0);
+  setTimeout(()=>{initRv();initCtr();},60);
+  closeM();
+}
+function toggleM(){document.getElementById('mnav').classList.toggle('on');document.getElementById('ham').classList.toggle('on');}
+function closeM(){document.getElementById('mnav').classList.remove('on');document.getElementById('ham').classList.remove('on');}
+window.addEventListener('load',()=>{
+  setTimeout(()=>{document.getElementById('ls').classList.add('out');initRv();initCtr();},1900);
+});
+let raf;
+window.addEventListener('scroll',()=>{
+  if(raf)cancelAnimationFrame(raf);
+  raf=requestAnimationFrame(()=>{
+    const sy=window.pageYOffset;
+    document.getElementById('nav').classList.toggle('sc',sy>60);
+    const dh=document.documentElement.scrollHeight-window.innerHeight;
+    document.getElementById('sp').style.width=(dh>0?(sy/dh*100):0)+'%';
+  });
+});
+function initRv(){
+  const els=document.querySelectorAll('#pg-'+cur+' .rv:not(.vi)');
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vi');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(el=>obs.observe(el));
+}
+function initCtr(){
+  const els=document.querySelectorAll('#pg-'+cur+' .counter:not(.done)');
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;el.classList.add('done');const tgt=parseInt(el.dataset.t);let n=0;const step=tgt/(1400/16);const t=setInterval(()=>{n=Math.min(n+step,tgt);el.textContent=Math.round(n);if(n>=tgt)clearInterval(t);},16);obs.unobserve(el);}});},{threshold:0.5});
+  els.forEach(el=>obs.observe(el));
+}
+function submitForm(){const btn=document.getElementById('fbtn');if(!btn)return;btn.textContent='Sending...';btn.style.opacity='.7';btn.disabled=true;setTimeout(()=>{btn.innerHTML='&#10003; Request Received — We\'ll be in touch within 24 hours';btn.style.opacity='1';btn.style.background='#2a7a3f';btn.style.fontSize='.78rem';},1600);}
+document.querySelectorAll('.nl').forEach(l=>{if(l.dataset.p==='home')l.classList.add('on');});
+</script>
+</body>
+</html>
